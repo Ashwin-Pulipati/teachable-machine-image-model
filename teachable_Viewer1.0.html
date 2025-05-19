@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teachable Machine Image Model</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap-container">
+      <h1>Teachable Machine Image Model</h1>
+
+      <h3>-- Ashwin Pulipati</h3>
+
+      <button type="button" onclick="init()" id="button" class="button-8">
+        Start
+      </button>
+
+      <!-- Loading text, hidden until init() runs -->
+      <div id="loading" style="display: none;">
+        Loading…
+      </div>
+
+      <div id="wrap-content">
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+      </div>
+
+      <div>
+        <details id="train-model-objects">
+          <summary>Objects used to train the model</summary>
+          <img src="./Objects used to train model.png" alt="Trained Model Objects">
+        </details>
+
+        <details id="sample-output">
+          <summary>Sample Output</summary>
+          <img src="./Output.png" alt="Final result of trained model">
+        </details>
+      </div>
+     
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript" src="teachable_Viewer1.0.js"></script>
+  </body>
+</html>

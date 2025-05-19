@@ -1,0 +1,149 @@
+body{
+  font-family: 'Monospace', sans-serif;
+}
+
+/* hide the webcam + labels until ready */
+#wrap-content {
+  display: none;
+  flex-direction: row;
+  gap: 30px;
+}
+
+h3 {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-left: 1030px;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+#loading {
+  display: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wrap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#train-model-objects img{
+  width: 600px;
+  height: 300px;
+}
+
+#sample-output img{
+  width: 500px;
+  height: 300px;
+
+}
+
+.wrap-container > div {
+  margin-bottom: 20px;
+}
+
+.button-8 {
+  touch-action: manipulation;
+  appearance: button;
+  background-color: transparent;
+  border-style: initial;
+  border-width: 0;
+  cursor: pointer;
+  margin: 0;
+  text-transform: none;
+  vertical-align: baseline;
+  margin-bottom: 30px;
+}
+
+.button-8:focus {
+  outline: 0;
+}
+
+.button-8 {
+  touch-action: manipulation;
+  background-image: linear-gradient(220.55deg, #f1467c 0%, #f8caba 100%);
+  border-radius: 8px;
+  color: #000;
+  font-feature-settings: "ss01", "cv10", "calt" 0, "liga" 0;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 24px;
+  padding: 10px 13px;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.6, 0.6, 0, 1),
+    margin-top 0.2s cubic-bezier(0.6, 0.6, 0, 1);
+  transition-behavior: normal, normal;
+}
+
+#blackWhite.button-8 {
+  background-image: linear-gradient(45deg, #92fe9d 0%, #00c9ff 100%);
+}
+
+.button-8::before {
+  -webkit-mask-clip: content-box, initial;
+  -webkit-mask-composite: xor;
+  -webkit-mask-image: linear-gradient(#fff 0, #fff 0),
+    linear-gradient(#fff 0, #fff 0);
+  -webkit-mask-origin: content-box, initial;
+  -webkit-mask-position-x: initial, initial;
+  -webkit-mask-position-y: initial, initial;
+  -webkit-mask-repeat-x: initial, initial;
+  -webkit-mask-repeat-y: initial, initial;
+  -webkit-mask-size: initial, initial;
+  padding: 1px;
+}
+
+.button-8::before {
+  background-color: initial;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.32), transparent);
+  bottom: 0;
+  pointer-events: none;
+  right: 0;
+}
+
+.button-8::after,
+.button-8::before {
+  border-radius: inherit;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.button-8::after {
+  box-shadow: #000019 0 0, rgba(0, 0, 25, 0.3) 0 9px 21px,
+    rgba(73, 2, 57, 0.2) 0 -3px inset;
+  height: 100%;
+  transition: box-shadow 0.2s cubic-bezier(0.6, 0.6, 0, 1),
+    background-color 0.2s cubic-bezier(0.6, 0.6, 0, 1);
+  transition-behavior: normal, normal;
+  width: 100%;
+  z-index: 1;
+}
+
+.button-8:active {
+  transform: translateY(1.5px);
+}
+
+.button-8:hover::after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button-8:active::after {
+  box-shadow: #000019 0 0, rgba(0, 0, 25, 0.2) 0 9px 21px,
+    rgba(73, 2, 57, 0.2) 0 0 inset;
+}

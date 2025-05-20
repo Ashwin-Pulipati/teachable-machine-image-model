@@ -10,7 +10,6 @@ async function init() {
   btn.disabled = true;
   loading.style.display = "block";
 
-  // If webcam already exists, stop and remove to avoid duplicates
   if (webcam && webcam.stream) {
     webcam.stop();
     webcam.canvas.remove();
@@ -28,10 +27,10 @@ async function init() {
   await webcam.play();
   window.requestAnimationFrame(loop);
 
-  document.getElementById("webcam-container").innerHTML = ""; // clear old canvas
+  document.getElementById("webcam-container").innerHTML = "";
   document.getElementById("webcam-container").appendChild(webcam.canvas);
   labelContainer = document.getElementById("label-container");
-  labelContainer.innerHTML = ""; // ensure old predictions are cleared
+  labelContainer.innerHTML = ""; 
 
   const labelStyles = [
     {
@@ -109,34 +108,28 @@ async function predict() {
   }
 }
 
-// DARK MODE TOGGLE
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
   const toggle = document.getElementById("dark-mode-toggle");
   toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
 
-// Set current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
 function restart() {
-  // Stop webcam stream if active
   if (webcam && webcam.stream) {
     webcam.stop();
     webcam.canvas.remove();
   }
 
-  // Clear label container
   if (labelContainer) {
     labelContainer.innerHTML = "";
   }
 
-  // Reset start button
   const btn = document.getElementById("button");
   btn.disabled = false;
   btn.style.opacity = "1";
   btn.style.cursor = "pointer";
 
-  // Hide content
   document.getElementById("wrap-content").style.display = "none";
 }

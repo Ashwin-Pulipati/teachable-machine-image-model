@@ -25,14 +25,18 @@
         </button>
       </div> 
 
-      <div id="loading">Loading…</div>
+      <div id="loading"><l-bouncy
+        size="45"
+        speed="1.75"
+        color="#ff007b" 
+      ></l-bouncy></div>
 
       <div id="wrap-content">
         <div id="webcam-container"></div>
         <div id="label-container"></div>
       </div>
 
-      <div>
+      <div id="model-info">
         <details id="train-model-objects">
           <summary>Objects used to train the model</summary>
           <img src="./Objects used to train model.png" alt="Trained Model Objects" />
@@ -51,6 +55,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/bouncy.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

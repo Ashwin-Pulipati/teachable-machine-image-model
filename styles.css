@@ -18,6 +18,7 @@ body {
   background-color: var(--bg-light);
   color: var(--text-light);
   transition: background-color 0.3s, color 0.3s;
+  overflow: visible;
 }
 
 body.dark {
@@ -46,7 +47,6 @@ h1 {
   color: var(--accent5);
 }
 
-/* Fix dark mode toggle icon hover behavior only */
 #dark-mode-toggle {
   cursor: pointer;
   font-size: 24px;
@@ -57,7 +57,7 @@ h1 {
 }
 
 #dark-mode-toggle:hover {
-  background-color: var(--accent2); /* Only appears on hover */
+  background-color: var(--accent2);
   color: white;
 }
 
@@ -106,20 +106,27 @@ h1 {
   border-radius: 12px;
 }
 
+#model-info{
+width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 details {
   width: 100%;
   max-width: 620px;
   box-sizing: border-box;
 }
 
-/* Optional: make <summary> and <img> styles consistent */
 details > summary {
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 10px;
 }
 
-/* Footer fixed at bottom */
 .footer {
   position: fixed;
   bottom: 0;
@@ -140,7 +147,6 @@ body.dark .footer {
   color: var(--text-dark);
 }
 
-/* Restart button styling */
 #restart-button {
   margin-bottom: 30px;
   background-image: linear-gradient(220.55deg, #ff85b3 0%, #ffc4ec 100%);
@@ -254,7 +260,7 @@ body.dark #label-container > div {
 #button-container {
   display: flex;
   flex-direction: row;
-  gap: 1rem; /* Adds space between Start and Restart */
+  gap: 1rem;
   justify-content: center;
   margin-bottom: 30px;
 }

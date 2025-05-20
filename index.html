@@ -2,24 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Teachable Machine Image Model</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <div class="wrap-container">
-      <h1>Teachable Machine Image Model</h1>
+      <header>
+        <h1>Teachable Machine Image Model</h1>
+        <div id="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+          🌙
+        </div>
+      </header>
 
-      <h3>-- Ashwin Pulipati</h3>
+      <div id="button-container">
+        <button type="button" onclick="init()" id="button" class="button-8">
+          Start
+        </button>
+        <button type="button" onclick="restart()" id="restart-button" class="button-8">
+          Restart
+        </button>
+      </div> 
 
-      <button type="button" onclick="init()" id="button" class="button-8">
-        Start
-      </button>
-
-      <!-- Loading text, hidden until init() runs -->
-      <div id="loading" style="display: none;">
-        Loading…
-      </div>
+      <div id="loading">Loading…</div>
 
       <div id="wrap-content">
         <div id="webcam-container"></div>
@@ -29,19 +35,22 @@
       <div>
         <details id="train-model-objects">
           <summary>Objects used to train the model</summary>
-          <img src="./Objects used to train model.png" alt="Trained Model Objects">
+          <img src="./Objects used to train model.png" alt="Trained Model Objects" />
         </details>
 
         <details id="sample-output">
           <summary>Sample Output</summary>
-          <img src="./Output.png" alt="Final result of trained model">
+          <img src="./Output.png" alt="Final result of trained model" />
         </details>
       </div>
-     
+
+      <footer class="footer">
+        Copyright &copy; <span id="year"></span>. Made with ❤️ by Ashwin Pulipati. All rights reserved.
+      </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

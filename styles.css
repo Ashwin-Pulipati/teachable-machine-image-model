@@ -1,23 +1,69 @@
-body{
-  font-family: 'Monospace', sans-serif;
+:root {
+  --bg-light: #fff0f6;
+  --bg-dark: #1a0b1f;
+  --text-light: #3b0a47;
+  --text-dark: #fce7f3;
+
+  --accent1: #ff85b3;
+  --accent2: #ffc4ec;
+  --accent3: #fda4af;
+  --accent4: #e879f9;
+  --accent5: #c084fc;
+  --border-rose: #f43f5e;
 }
 
-/* hide the webcam + labels until ready */
-#wrap-content {
-  display: none;
-  flex-direction: row;
-  gap: 30px;
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-h3 {
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-left: 1030px;
-  font-style: italic;
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.wrap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
 }
 
 h1 {
   font-size: 25px;
+  text-align: center;
+  color: var(--accent5);
+}
+
+/* Fix dark mode toggle icon hover behavior only */
+#dark-mode-toggle {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+  background-color: var(--accent2); /* Only appears on hover */
+  color: white;
+}
+
+
+#button {
+  margin-bottom: 30px;
 }
 
 #loading {
@@ -27,6 +73,12 @@ h1 {
   margin: 10px 0;
 }
 
+#wrap-content {
+  display: none;
+  flex-direction: row;
+  gap: 30px;
+}
+
 #label-container {
   display: flex;
   flex-direction: column;
@@ -34,26 +86,77 @@ h1 {
   align-items: flex-start;
 }
 
-.wrap-container {
+#webcam-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#train-model-objects img{
-  width: 600px;
-  height: 300px;
+#webcam-container canvas {
+  border-radius: 20px;
+  border: 4px solid var(--accent5);
+  box-shadow: 0 0 15px rgba(248, 160, 220, 0.7);
 }
 
-#sample-output img{
-  width: 500px;
-  height: 300px;
-
+#train-model-objects img,
+#sample-output img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
 }
 
-.wrap-container > div {
-  margin-bottom: 20px;
+details {
+  width: 100%;
+  max-width: 620px;
+  box-sizing: border-box;
+}
+
+/* Optional: make <summary> and <img> styles consistent */
+details > summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Footer fixed at bottom */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  background-color: rgba(255, 240, 246, 0.95);
+  color: var(--text-light);
+  font-size: 14px;
+  text-align: center;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease;
+}
+
+body.dark .footer {
+  background-color: rgba(26, 11, 31, 0.9);
+  color: var(--text-dark);
+}
+
+/* Restart button styling */
+#restart-button {
+  margin-bottom: 30px;
+  background-image: linear-gradient(220.55deg, #ff85b3 0%, #ffc4ec 100%);
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#restart-button:hover {
+  transform: translateY(-2px);
+  background-color: #ffaad1;
 }
 
 .button-8 {
@@ -67,14 +170,6 @@ h1 {
   text-transform: none;
   vertical-align: baseline;
   margin-bottom: 30px;
-}
-
-.button-8:focus {
-  outline: 0;
-}
-
-.button-8 {
-  touch-action: manipulation;
   background-image: linear-gradient(220.55deg, #f1467c 0%, #f8caba 100%);
   border-radius: 8px;
   color: #000;
@@ -88,6 +183,11 @@ h1 {
     margin-top 0.2s cubic-bezier(0.6, 0.6, 0, 1);
   transition-behavior: normal, normal;
 }
+
+.button-8:focus {
+  outline: 0;
+}
+
 
 #blackWhite.button-8 {
   background-image: linear-gradient(45deg, #92fe9d 0%, #00c9ff 100%);
@@ -105,15 +205,13 @@ h1 {
   -webkit-mask-repeat-y: initial, initial;
   -webkit-mask-size: initial, initial;
   padding: 1px;
-}
-
-.button-8::before {
   background-color: initial;
   background-image: linear-gradient(rgba(255, 255, 255, 0.32), transparent);
   bottom: 0;
   pointer-events: none;
   right: 0;
 }
+
 
 .button-8::after,
 .button-8::before {
@@ -146,4 +244,17 @@ h1 {
 .button-8:active::after {
   box-shadow: #000019 0 0, rgba(0, 0, 25, 0.2) 0 9px 21px,
     rgba(73, 2, 57, 0.2) 0 0 inset;
+}
+
+body.dark #label-container > div {
+  color: black;
+  filter: brightness(0.95);
+}
+
+#button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* Adds space between Start and Restart */
+  justify-content: center;
+  margin-bottom: 30px;
 }

@@ -12,6 +12,12 @@
   --border-rose: #f43f5e;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -27,11 +33,11 @@ body.dark {
 }
 
 .wrap-container {
+  flex:1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  padding-bottom: 80px;
 }
 
 header {
@@ -129,10 +135,8 @@ details > summary {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: static;
+  margin-top: auto; /* Pushes it to the bottom */
   padding: 10px 0;
   background-color: rgba(255, 240, 246, 0.95);
   color: var(--text-light);
@@ -263,4 +267,77 @@ body.dark #label-container > div {
   gap: 1rem;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  #wrap-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #model-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #webcam-container,
+  #label-container {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #webcam-container canvas {
+    max-width: 90vw;
+    height: auto;
+  }
+
+  #train-model-objects img,
+  #sample-output img {
+    max-width: 90vw;
+  }
+
+  .button-8,
+  #restart-button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  #button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .wrap-container {
+    padding: 10px;
+  }
+
+  #button-container {
+    gap: 0.5rem;
+  }
+
+  .button-8,
+  #restart-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  footer.footer {
+    font-size: 12px;
+    padding: 8px 0;
+  }
 }
